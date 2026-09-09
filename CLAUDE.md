@@ -71,14 +71,20 @@ e-mail ou telefone na URL.
 
 ## Imagens
 
-Em `public/img/`:
+Originais em `src/assets/fotos/` (rastreados no git, **não** vão para o `dist/`):
 
 - `hero.jpg` — plateia e palco com backdrop Unyflex
 - `galeria-01..06.jpg` — eventos anteriores (sala cheia, palestrantes, participantes, coffee break)
 - `prof-rafael.jpg`, `prof-jose-augusto.jpg`, `prof-juliana.jpg`
 
-Converter todas para WebP no build. Fotos de professores recortadas em proporção 1:1,
-enquadramento no rosto.
+O script `scripts/images.mjs` roda antes de `dev` e `build` (e via `npm run images`) e gera as versões
+otimizadas em `public/img/gen/` (ignorada no git): WebP em várias larguras com fallback JPG, e para os
+professores o recorte 1:1 com enquadramento no rosto. A página referencia **somente** `/img/gen/`.
+O script pula o que já está atualizado e apaga saídas cujo original foi removido.
+
+Para trocar uma foto, substitua o arquivo em `src/assets/fotos/` com o mesmo nome. Para adicionar
+uma nova, coloque-a lá e, se precisar de larguras ou recorte específicos, ajuste `VARIANTS`/`SQUARE`
+no script. Fotos que a página não usa ficam em `assets-originais/` (ignorada).
 
 ## Entrega
 

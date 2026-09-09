@@ -1,10 +1,10 @@
-// Gera versões otimizadas das fotos de public/img em public/img/gen (gitignored).
+// Gera versões otimizadas das fotos de src/assets/fotos em public/img/gen (gitignored).
 // Roda automaticamente antes de `dev` e `build`; pula arquivos já atualizados.
 import { readdir, stat, mkdir, unlink } from 'node:fs/promises'
 import { join, parse } from 'node:path'
 import sharp from 'sharp'
 
-const SRC = 'public/img'
+const SRC = 'src/assets/fotos'
 const OUT = 'public/img/gen'
 const WEBP = { quality: 78 }
 const JPEG = { quality: 80, mozjpeg: true }

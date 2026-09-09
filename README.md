@@ -34,6 +34,7 @@ npm install
 npm run dev      # servidor local
 npm run build    # gera dist/
 npm run preview  # serve dist/ localmente
+npm run images   # regenera public/img/gen/ a partir de src/assets/fotos/
 ```
 
 O `dist/` é estático e pode ser servido diretamente pelo Apache.
