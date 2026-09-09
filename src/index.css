@@ -1,0 +1,51 @@
+/* Poppins — só os pesos usados, self-hosted, font-display: swap */
+@import '@fontsource/poppins/latin-400.css';
+@import '@fontsource/poppins/latin-ext-400.css';
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-ext-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-ext-600.css';
+@import '@fontsource/poppins/latin-700.css';
+@import '@fontsource/poppins/latin-ext-700.css';
+
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------
+   Tokens da identidade Unyflex
+   Uso: bg-navy, bg-navy-deep, text-cyan, bg-blue, text-gold,
+        font-sans (Poppins)
+   --------------------------------------------------------------- */
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy: #0a1828;
+  --color-navy-deep: #060f1c;
+  --color-cyan: #22b8f0;
+  --color-blue: #0099ff;
+  --color-gold: #f5b700;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-navy-deep font-sans text-white antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+/* Card com glassmorphism (blur + borda sutil) */
+@utility glass {
+  background-color: --alpha(var(--color-white) / 5%);
+  border: 1px solid --alpha(var(--color-white) / 10%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
