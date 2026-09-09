@@ -1,6 +1,6 @@
 // Gera versões otimizadas das fotos de public/img em public/img/gen (gitignored).
 // Roda automaticamente antes de `dev` e `build`; pula arquivos já atualizados.
-import { readdir, stat, mkdir } from 'node:fs/promises'
+import { readdir, stat, mkdir, unlink } from 'node:fs/promises'
 import { join, parse } from 'node:path'
 import sharp from 'sharp'
 
@@ -48,6 +48,16 @@ async function isFresh(src, out) {
 
 await mkdir(OUT, { recursive: true })
 const files = (await readdir(SRC)).filter((f) => /\.(jpe?g|png)$/i.test(f))
+
+// Remove saídas cujo original não existe mais.
+const sources = new Set(files.map((f) => parse(f).name))
+for (const out of await readdir(OUT)) {
+  const base = parse(out).name.replace(/-(sq-)?\d+$/, '')
+  if (!sources.has(base)) {
+    await unlink(join(OUT, out))
+    console.log('removido', join(OUT, out))
+  }
+}
 
 for (const file of files) {
   const { name } = parse(file)
