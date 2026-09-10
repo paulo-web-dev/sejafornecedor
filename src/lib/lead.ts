@@ -1,6 +1,8 @@
 import type { Utms } from './utm'
 
 export const FORM_ID = 'lp-seja-fornecedor'
+export const PRODUTO = 'seja-fornecedor'
+export const VINCULO = 'fornecedor'
 
 export type LeadFields = {
   nome: string
@@ -11,7 +13,14 @@ export type LeadFields = {
   cidade: string
 }
 
-export type LeadPayload = { form_id: typeof FORM_ID } & LeadFields & Utms
+export type LeadPayload = {
+  form_id: typeof FORM_ID
+  produto: typeof PRODUTO
+  vinculo: typeof VINCULO
+  /** URL completa da página no momento do submit. */
+  URL: string
+} & LeadFields &
+  Utms
 
 const TIMEOUT_MS = 15_000
 

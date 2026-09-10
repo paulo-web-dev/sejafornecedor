@@ -3,7 +3,7 @@ import Section, { SectionTitle } from '../components/Section'
 import Field from '../components/Field'
 import { formatPhone, isValidPhone, phoneDigits } from '../lib/phone'
 import { readUtms } from '../lib/utm'
-import { FORM_ID, submitLead, type LeadFields } from '../lib/lead'
+import { FORM_ID, PRODUTO, VINCULO, submitLead, type LeadFields } from '../lib/lead'
 
 type Errors = Partial<Record<keyof LeadFields, string>>
 type Status = 'idle' | 'sending' | 'error'
@@ -59,6 +59,9 @@ export default function FinalCta() {
       // UTMs lidas da URL no momento do submit, conforme CLAUDE.md.
       await submitLead({
         form_id: FORM_ID,
+        produto: PRODUTO,
+        vinculo: VINCULO,
+        URL: window.location.href,
         nome: fields.nome.trim(),
         whatsapp: phoneDigits(fields.whatsapp),
         email: fields.email.trim(),
