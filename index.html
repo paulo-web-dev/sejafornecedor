@@ -18,16 +18,25 @@
       imagesizes="100vw"
       fetchpriority="high"
     />
+    <!-- Pesos usados no hero (h1 = elemento LCP). Os demais chegam via CSS. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-700.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-400.woff2" crossorigin />
 
-    <!-- Meta Pixel -->
+    <!-- Meta Pixel: stub, init e PageView ficam aqui no head e entram na fila.
+         O fbevents.js (~230 KB com o config, ~1,5 s de CPU num celular médio)
+         só é injetado por window.__loadMetaPixel(), chamado pelo React depois
+         do primeiro paint (src/lib/pixel.ts). Fallback: 3 s após o load. -->
     <script>
       !function(f,b,e,v,n,t,s)
       {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
       n.callMethod.apply(n,arguments):n.queue.push(arguments)};
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
+      n.queue=[];
+      f.__loadMetaPixel=function(){if(t)return;t=b.createElement(e);t.async=!0;
       t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      s.parentNode.insertBefore(t,s)};
+      f.addEventListener('load',function(){f.setTimeout(f.__loadMetaPixel,3000)});
+      }(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '1168799437651546');
       fbq('track', 'PageView');

@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { loadMetaPixelAfterPaint } from './lib/pixel'
 import Hero from './sections/Hero'
 import AuthorityBar from './sections/AuthorityBar'
 import Problem from './sections/Problem'
@@ -14,6 +16,8 @@ import FinalCta from './sections/FinalCta'
 import StickyCta from './components/StickyCta'
 
 export default function App() {
+  useEffect(loadMetaPixelAfterPaint, [])
+
   return (
     <>
       <main className="min-h-dvh bg-navy">

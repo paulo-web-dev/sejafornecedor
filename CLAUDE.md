@@ -16,7 +16,9 @@ maioria em celular, tráfego frio. Objetivo único da página: gerar lead no for
 1. **Performance é requisito, não detalhe.** Tráfego pago em celular. Meta: LCP abaixo de 2,5s em 4G.
    - Todas as fotos convertidas para WebP, com fallback JPG.
    - Hero com imagem em `<link rel="preload">`; todas as demais com `loading="lazy"`.
-   - Fontes com `display: swap`. Nada de importar família inteira.
+   - Fontes com `display: swap`. Nada de importar família inteira. Poppins fica self-hosted em
+     `public/fonts/` (subset latin, pesos 400/500/600/700) com nome estável para o `preload` no
+     `index.html`, e com a face `Poppins Fallback` de métricas ajustadas para o swap não gerar CLS.
    - Zero biblioteca de animação pesada. Se precisar de transição, CSS puro.
 2. **Mobile-first.** Escreva o layout do menor breakpoint para cima.
 3. **Um único objetivo por dobra.** Todo CTA leva ao formulário.
@@ -51,6 +53,8 @@ Payload:
 ```json
 {
   "form_id": "lp-seja-fornecedor",
+  "produto": "seja-fornecedor", "vinculo": "fornecedor",
+  "URL": "https://exemplo.com/?utm_source=...",
   "nome": "", "whatsapp": "", "email": "",
   "empresa": "", "segmento": "", "cidade": "",
   "utm_source": "", "utm_medium": "", "utm_campaign": "",
@@ -65,6 +69,9 @@ e-mail ou telefone na URL.
 ## Tracking
 
 - Meta Pixel `1168799437651546` no `<head>` do `index.html`: init + PageView.
+  O stub, o `init` e o `PageView` ficam no head, mas o `fbevents.js` só é injetado por
+  `window.__loadMetaPixel()`, chamado em `src/lib/pixel.ts` depois do LCP (os ~230 KB e ~1,5 s de
+  CPU do script derrubavam o LCP no celular). Não voltar a carregar o script direto no head.
 - O evento `Lead` dispara **apenas** no carregamento de `/obrigado.html`. Nunca no clique nem no submit.
 - `/obrigado.html` é uma página estática separada, com o pixel base + o evento Lead.
 - Qualquer redirect interno preserva `utm_*` e `fbclid`.

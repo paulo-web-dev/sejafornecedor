@@ -1,14 +1,51 @@
-/* Poppins — só os pesos usados, self-hosted, font-display: swap */
-@import '@fontsource/poppins/latin-400.css';
-@import '@fontsource/poppins/latin-ext-400.css';
-@import '@fontsource/poppins/latin-500.css';
-@import '@fontsource/poppins/latin-ext-500.css';
-@import '@fontsource/poppins/latin-600.css';
-@import '@fontsource/poppins/latin-ext-600.css';
-@import '@fontsource/poppins/latin-700.css';
-@import '@fontsource/poppins/latin-ext-700.css';
-
 @import 'tailwindcss';
+
+/* ---------------------------------------------------------------
+   Poppins — self-hosted em /public/fonts (nome estável para permitir
+   <link rel="preload"> no index.html), só o subset latin (cobre o
+   português) e só os 4 pesos usados. font-display: swap.
+   --------------------------------------------------------------- */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/poppins-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+}
+
+/* Fallback com métricas ajustadas às da Poppins: enquanto o woff2 não
+   chega, o texto ocupa praticamente o mesmo espaço, então o swap não
+   causa layout shift. Valores derivados das tabelas da Poppins
+   (ascent 1050, descent 350, lineGap 100, upm 1000) sobre a Arial. */
+@font-face {
+  font-family: 'Poppins Fallback';
+  src: local('Arial'), local('Helvetica'), local('Liberation Sans');
+  size-adjust: 112.16%;
+  ascent-override: 93.62%;
+  descent-override: 31.21%;
+  line-gap-override: 8.92%;
+}
 
 /* ---------------------------------------------------------------
    Tokens da identidade Unyflex
@@ -16,7 +53,7 @@
         font-sans (Poppins)
    --------------------------------------------------------------- */
 @theme {
-  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Poppins', 'Poppins Fallback', ui-sans-serif, system-ui, sans-serif;
 
   --color-navy: #0a1828;
   --color-navy-deep: #060f1c;

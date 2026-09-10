@@ -18,6 +18,8 @@ outra origem, precisa responder ao preflight `OPTIONS` com os cabeçalhos CORS (
 ```json
 {
   "form_id": "lp-seja-fornecedor",
+  "produto": "seja-fornecedor", "vinculo": "fornecedor",
+  "URL": "https://exemplo.com/?utm_source=...",
   "nome": "", "whatsapp": "41999998888", "email": "",
   "empresa": "", "segmento": "", "cidade": "",
   "utm_source": "", "utm_medium": "", "utm_campaign": "",
@@ -25,7 +27,8 @@ outra origem, precisa responder ao preflight `OPTIONS` com os cabeçalhos CORS (
 }
 ```
 
-O campo `whatsapp` vai só com dígitos (DDD + número).
+O campo `whatsapp` vai só com dígitos (DDD + número). `produto` e `vinculo` são fixos; `URL` é a
+URL completa da página no momento do envio.
 
 ## Scripts
 
@@ -38,3 +41,12 @@ npm run images   # regenera public/img/gen/ a partir de src/assets/fotos/
 ```
 
 O `dist/` é estático e pode ser servido diretamente pelo Apache.
+
+## Performance
+
+- Poppins é self-hosted em `public/fonts/` (woff2, subset latin, licença OFL ao lado). Os pesos
+  400 e 700 são pré-carregados no `index.html`; a face `Poppins Fallback` ajusta as métricas da
+  Arial para o swap não causar layout shift.
+- O `fbevents.js` do Meta Pixel só é injetado depois do LCP (`src/lib/pixel.ts`). `init` e
+  `PageView` ficam na fila do stub no `<head>` e disparam quando o script chega.
+- Referência (Lighthouse mobile, `vite preview`, mediana de 3 rodadas): LCP 1,8 s, CLS 0.

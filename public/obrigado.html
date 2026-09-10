@@ -23,14 +23,40 @@
     </script>
     <!-- End Meta Pixel -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
-    />
+    <!-- Mesmas fontes self-hosted da LP (public/fonts), sem CSS externo bloqueando a renderização -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-700.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-400.woff2" crossorigin />
 
     <style>
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/fonts/poppins-400.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('/fonts/poppins-600.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('/fonts/poppins-700.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Poppins Fallback';
+        src: local('Arial'), local('Helvetica'), local('Liberation Sans');
+        size-adjust: 112.16%;
+        ascent-override: 93.62%;
+        descent-override: 31.21%;
+        line-gap-override: 8.92%;
+      }
       :root {
         --navy: #0a1828;
         --navy-deep: #060f1c;
@@ -47,7 +73,7 @@
         padding: 24px 20px;
         background: radial-gradient(ellipse at top, var(--navy) 0%, var(--navy-deep) 60%);
         color: #fff;
-        font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+        font-family: 'Poppins', 'Poppins Fallback', ui-sans-serif, system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
         text-align: center;
       }
