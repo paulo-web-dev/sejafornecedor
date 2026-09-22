@@ -81,8 +81,11 @@ e-mail ou telefone na URL.
 Originais em `src/assets/fotos/` (rastreados no git, **não** vão para o `dist/`):
 
 - `hero.jpg` — plateia e palco com backdrop Unyflex
-- `galeria-01..06.jpg` — eventos anteriores (sala cheia, palestrantes, participantes, coffee break)
 - `prof-rafael.jpg`, `prof-jose-augusto.jpg`, `prof-juliana.jpg`
+- `eventos/*.jpg` — 26 fotos de eventos anteriores (galeria do bloco 9 e faixa de fotos após o bloco 2).
+  Categorias, alt e ordem ficam em `src/lib/eventos.ts`. Legenda fixa "Eventos Unyflex em Curitiba":
+  nunca afirmar que a foto é deste programa. Saída em `public/img/gen/eventos/` (400/800/1600) e
+  dimensões em `src/generated/eventos.json` (gerado, ignorado no git) para o width/height dos `<img>`.
 
 O script `scripts/images.mjs` roda antes de `dev` e `build` (e via `npm run images`) e gera as versões
 otimizadas em `public/img/gen/` (ignorada no git): WebP em várias larguras com fallback JPG, e para os

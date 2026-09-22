@@ -60,6 +60,14 @@
   --color-cyan: #22b8f0;
   --color-blue: #0099ff;
   --color-gold: #f5b700;
+
+  /* Faixa de fotos em rolagem contínua (a trilha tem duas cópias, então -50% fecha o ciclo). */
+  --animate-marquee: marquee 70s linear infinite;
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @layer base {

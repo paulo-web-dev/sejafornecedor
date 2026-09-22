@@ -49,4 +49,7 @@ O `dist/` é estático e pode ser servido diretamente pelo Apache.
   Arial para o swap não causar layout shift.
 - O `fbevents.js` do Meta Pixel só é injetado depois do LCP (`src/lib/pixel.ts`). `init` e
   `PageView` ficam na fila do stub no `<head>` e disparam quando o script chega.
+- A faixa de fotos logo abaixo da barra de autoridade só monta os `<img>` depois do LCP
+  (`src/lib/afterPaint.ts`): está dentro da margem do `loading="lazy"` e disputaria banda com o hero.
+  O lightbox da galeria só baixa a versão de 1600 px quando é aberto.
 - Referência (Lighthouse mobile, `vite preview`, mediana de 3 rodadas): LCP 1,8 s, CLS 0.

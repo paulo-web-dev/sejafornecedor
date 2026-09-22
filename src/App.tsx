@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { loadMetaPixelAfterPaint } from './lib/pixel'
 import Hero from './sections/Hero'
 import AuthorityBar from './sections/AuthorityBar'
+import PhotoStrip from './sections/PhotoStrip'
 import Problem from './sections/Problem'
 import Objection from './sections/Objection'
 import Differential from './sections/Differential'
@@ -23,6 +24,7 @@ export default function App() {
       <main className="min-h-dvh bg-navy">
         <Hero />
         <AuthorityBar />
+        <PhotoStrip />
         <Problem />
         <Objection />
         <Differential />
