@@ -1,4 +1,5 @@
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 
 type Professor = {
   slug: string
@@ -68,6 +69,7 @@ export default function Professors() {
           </li>
         ))}
       </ul>
+      <SectionCta variant="outline" />
     </Section>
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 import Lightbox from '../components/Lightbox'
 import {
   CATEGORIAS,
@@ -110,6 +111,9 @@ export default function Experience() {
           </button>
         </div>
       )}
+
+      {/* centralizado para alinhar com o "Ver mais fotos" */}
+      <SectionCta variant="solid" className="text-center" />
 
       <Lightbox fotos={fotos} index={aberta} onChange={setAberta} />
     </Section>

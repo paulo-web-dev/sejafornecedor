@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 
 const CARDS: { icon: ReactNode; title: string; body: ReactNode }[] = [
   {
@@ -58,6 +59,7 @@ export default function Deliverables() {
           </li>
         ))}
       </ul>
+      <SectionCta variant="solid" />
     </Section>
   )
 }

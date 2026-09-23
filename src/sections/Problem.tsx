@@ -1,4 +1,5 @@
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 
 export default function Problem() {
   return (
@@ -29,6 +30,7 @@ export default function Problem() {
           </p>
         </div>
       </div>
+      <SectionCta variant="outline" />
     </Section>
   )
 }

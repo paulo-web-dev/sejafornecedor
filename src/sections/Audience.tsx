@@ -1,4 +1,5 @@
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 
 const FOR_YOU = [
   'sua empresa já vende produto ou serviço e está formalizada;',
@@ -42,6 +43,7 @@ export default function Audience() {
           </ul>
         </div>
       </div>
+      <SectionCta variant="solid" />
     </Section>
   )
 }

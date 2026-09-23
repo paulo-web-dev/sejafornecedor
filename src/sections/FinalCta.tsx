@@ -130,10 +130,11 @@ export default function FinalCta() {
             <Field
               id="campo-email"
               name="email"
-              label="E-mail"
+              label="E-mail corporativo"
               type="email"
               inputMode="email"
               autoComplete="email"
+              placeholder="E-mail corporativo"
               value={fields.email}
               onChange={onChange}
               error={errors.email}

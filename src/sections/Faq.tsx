@@ -1,4 +1,5 @@
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 
 type Item = { q: string; a: string; pending?: boolean }
 
@@ -56,6 +57,7 @@ export default function Faq() {
           </details>
         ))}
       </div>
+      <SectionCta variant="outline" />
     </Section>
   )
 }

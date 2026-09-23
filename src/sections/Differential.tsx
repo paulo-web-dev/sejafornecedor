@@ -1,4 +1,5 @@
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 
 export default function Differential() {
   return (
@@ -34,6 +35,7 @@ export default function Differential() {
           Quem conhece o processo por dentro participa em vantagem.
         </p>
       </div>
+      <SectionCta variant="solid" />
     </Section>
   )
 }

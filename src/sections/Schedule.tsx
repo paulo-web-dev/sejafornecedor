@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 import { useMediaQuery } from '../lib/useMediaQuery'
 
 type Module = { number: number; title: string; body: string }
@@ -62,6 +63,7 @@ export default function Schedule() {
           <DayCard key={day.label} day={day} expanded={isDesktop} />
         ))}
       </div>
+      <SectionCta variant="outline" />
     </Section>
   )
 }

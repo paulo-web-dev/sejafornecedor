@@ -1,4 +1,5 @@
 import Section, { SectionTitle } from '../components/Section'
+import SectionCta from '../components/SectionCta'
 
 export default function Objection() {
   return (
@@ -25,6 +26,7 @@ export default function Objection() {
           </p>
         </div>
       </div>
+      <SectionCta variant="outline" />
     </Section>
   )
 }
