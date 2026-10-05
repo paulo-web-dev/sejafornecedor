@@ -38,9 +38,9 @@ const ITEMS: Item[] = [
 export default function Faq() {
   return (
     <Section id="faq" tone="deep">
-      <SectionTitle>Perguntas frequentes</SectionTitle>
+      <SectionTitle className="lg:text-center">Perguntas frequentes</SectionTitle>
 
-      <div className="glass mt-8 max-w-3xl divide-y divide-white/10 rounded-2xl px-5 sm:mt-10 sm:px-7">
+      <div className="glass mx-auto mt-8 max-w-[65ch] divide-y divide-white/10 rounded-2xl px-5 sm:mt-10 sm:px-7">
         {ITEMS.map(({ q, a, pending }, i) => (
           <details key={q} name="faq" open={i === 0} className="group py-1">
             <summary className="flex cursor-pointer list-none items-center gap-4 py-4 text-base leading-snug font-semibold marker:hidden sm:text-lg [&::-webkit-details-marker]:hidden">
@@ -57,7 +57,7 @@ export default function Faq() {
           </details>
         ))}
       </div>
-      <SectionCta variant="outline" />
+      <SectionCta variant="outline" className="lg:text-center" />
     </Section>
   )
 }

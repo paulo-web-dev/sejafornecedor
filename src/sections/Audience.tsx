@@ -1,5 +1,6 @@
 import Section, { SectionTitle } from '../components/Section'
 import SectionCta from '../components/SectionCta'
+import TextoComFoto from '../components/TextoComFoto'
 
 const FOR_YOU = [
   'sua empresa já vende produto ou serviço e está formalizada;',
@@ -16,33 +17,44 @@ const NOT_FOR_YOU = [
 export default function Audience() {
   return (
     <Section id="para-quem" tone="navy">
-      <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
-        <div className="lg:col-span-3">
-          <SectionTitle>Este curso é para você se…</SectionTitle>
-          <ul className="mt-6 space-y-3.5">
-            {FOR_YOU.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-base leading-relaxed text-white/85 sm:text-lg">
-                <CheckIcon className="mt-1 shrink-0 text-cyan" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+      <TextoComFoto
+        slug="IMG_5948"
+        alt="Participantes com crachá sentados às mesas redondas do salão"
+      >
+        <div className="grid gap-6">
+          <div>
+            <SectionTitle>Este curso é para você se…</SectionTitle>
+            <ul className="mt-6 space-y-3.5">
+              {FOR_YOU.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-base leading-relaxed text-white/85 sm:text-lg"
+                >
+                  <CheckIcon className="mt-1 shrink-0 text-cyan" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className="glass self-start rounded-2xl p-6 sm:p-7 lg:col-span-2 lg:mt-2">
-          <h3 className="text-lg leading-snug font-bold text-white/80 sm:text-xl">
-            Não é para você se…
-          </h3>
-          <ul className="mt-4 space-y-3">
-            {NOT_FOR_YOU.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm leading-relaxed text-white/70 sm:text-base">
-                <XIcon className="mt-1 shrink-0 text-white/40" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="glass rounded-2xl p-6 sm:p-7">
+            <h3 className="text-lg leading-snug font-bold text-white/80 sm:text-xl">
+              Não é para você se…
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {NOT_FOR_YOU.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 text-sm leading-relaxed text-white/70 sm:text-base"
+                >
+                  <XIcon className="mt-1 shrink-0 text-white/40" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
+      </TextoComFoto>
       <SectionCta variant="solid" />
     </Section>
   )

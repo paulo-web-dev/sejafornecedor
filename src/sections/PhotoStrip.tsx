@@ -3,13 +3,17 @@ import { FAIXA, dimensoes, fotoPorSlug, jpg, srcSetPequeno } from '../lib/evento
 
 const CAIXA = 'h-32 rounded-lg bg-white/5 sm:h-44 sm:rounded-xl'
 
+// Com 6 fotos, uma volta (~1630 px em sm) não cobre um monitor de 1920 px e a emenda
+// apareceria. Cada volta repete a lista duas vezes; a duração da animação acompanha.
+const VOLTA = [...FAIXA, ...FAIXA]
+
 /**
  * Faixa horizontal de fotos em rolagem contínua, logo após a barra de autoridade.
  * CSS puro: a trilha tem a lista duas vezes e anda -50%. Pausa no hover.
  * Com prefers-reduced-motion a animação some, a cópia some e a faixa vira rolagem manual.
  *
  * A faixa fica logo abaixo da dobra, dentro da margem do loading="lazy" do Chrome: sem
- * adiar, as 8 fotos baixariam junto com o hero e disputariam banda com o LCP. Por isso
+ * adiar, as fotos baixariam junto com o hero e disputariam banda com o LCP. Por isso
  * os <img> só entram depois da primeira pintura; até lá, caixas do mesmo tamanho (sem CLS).
  */
 export default function PhotoStrip() {
@@ -27,8 +31,8 @@ export default function PhotoStrip() {
             className={`flex ${copia ? 'motion-reduce:hidden' : ''}`}
             aria-hidden={copia ? true : undefined}
           >
-            {FAIXA.map((slug) => (
-              <li key={slug} className="pr-2 sm:pr-3">
+            {VOLTA.map((slug, i) => (
+              <li key={i} className="pr-2 sm:pr-3">
                 {pronto ? (
                   <picture>
                     <source
@@ -38,7 +42,7 @@ export default function PhotoStrip() {
                     />
                     <img
                       src={jpg(slug)}
-                      alt={copia ? '' : fotoPorSlug(slug).alt}
+                      alt={copia || i >= FAIXA.length ? '' : fotoPorSlug(slug).alt}
                       {...dimensoes(slug)}
                       loading="lazy"
                       decoding="async"

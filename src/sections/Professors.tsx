@@ -37,7 +37,7 @@ const PROFESSORS: Professor[] = [
 export default function Professors() {
   return (
     <Section id="professores" tone="deep">
-      <SectionTitle>Quem vai ensinar</SectionTitle>
+      <SectionTitle className="lg:text-center">Quem vai ensinar</SectionTitle>
 
       <ul className="mt-8 grid gap-5 sm:mt-10 md:grid-cols-3 md:gap-6">
         {PROFESSORS.map((p) => (
@@ -69,7 +69,7 @@ export default function Professors() {
           </li>
         ))}
       </ul>
-      <SectionCta variant="outline" />
+      <SectionCta variant="outline" className="lg:text-center" />
     </Section>
   )
 }

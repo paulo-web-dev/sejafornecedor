@@ -40,11 +40,6 @@ export const FOTOS: FotoEvento[] = [
     alt: 'Palestrante falando ao microfone no palco',
   },
   { slug: 'networking', categoria: 'experiencia', alt: 'Participantes conversando no intervalo' },
-  {
-    slug: 'auditorio-01',
-    categoria: 'evento',
-    alt: 'Participantes em poltronas de auditório acompanhando um palestrante',
-  },
   { slug: 'IMG_6804', categoria: 'aula', alt: 'Participantes com crachá atentas à aula' },
   {
     slug: 'garcom-servindo-almoco',
@@ -60,11 +55,6 @@ export const FOTOS: FotoEvento[] = [
     slug: 'palestrante-e-plateia',
     categoria: 'aula',
     alt: 'Palestrante gesticulando diante de um salão cheio de mesas redondas',
-  },
-  {
-    slug: 'grupo-oficial-plenario-01',
-    categoria: 'turmas',
-    alt: 'Foto oficial da turma reunida em um plenário',
   },
   {
     slug: 'IMG_5635',
@@ -130,14 +120,12 @@ export const FOTOS: FotoEvento[] = [
   },
 ]
 
-/** Faixa de fotos abaixo da barra de autoridade: Evento + Turmas (só há 7) e uma panorâmica de sala cheia. */
+/** Faixa de fotos abaixo da barra de autoridade: Evento + Turmas (só há 5) e uma panorâmica de sala cheia. */
 export const FAIXA: string[] = [
   'evento-cheio',
   'grupo-participantes-02',
-  'auditorio-01',
   'IMG_6831',
   'IMG_5635',
-  'grupo-oficial-plenario-01',
   'IMG_5994',
   'IMG_6862',
 ]
@@ -157,6 +145,9 @@ export const srcSetPequeno = (slug: string) =>
 /** srcset WebP para o lightbox. */
 export const srcSetGrande = (slug: string) =>
   `${BASE}/${slug}-800.webp 800w, ${BASE}/${slug}-1600.webp 1600w`
+
+/** Se a foto existe em src/assets/fotos/eventos/ (o manifesto só lista o que foi gerado). */
+export const temFoto = (slug: string) => slug in dims
 
 /** Fallback JPG para navegadores sem WebP. */
 export const jpg = (slug: string) => `${BASE}/${slug}-800.jpg`

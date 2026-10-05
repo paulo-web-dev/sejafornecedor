@@ -56,14 +56,14 @@ export default function Schedule() {
 
   return (
     <Section id="programacao" tone="navy" className="scroll-mt-4">
-      <SectionTitle>Programa completo — 6 módulos</SectionTitle>
+      <SectionTitle className="lg:text-center">Programa completo — 6 módulos</SectionTitle>
 
       <div className="mt-8 grid gap-5 sm:mt-10 lg:grid-cols-2 lg:gap-6">
         {DAYS.map((day) => (
           <DayCard key={day.label} day={day} expanded={isDesktop} />
         ))}
       </div>
-      <SectionCta variant="outline" />
+      <SectionCta variant="outline" className="lg:text-center" />
     </Section>
   )
 }

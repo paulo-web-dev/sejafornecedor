@@ -40,8 +40,8 @@ Os blocos, na ordem, estão no arquivo `copy.md` na raiz do projeto. Use o texto
 não reescreva, não "melhore", não encurte. Se algum texto não couber no layout, avise em vez de cortar.
 
 Blocos: hero → barra de autoridade → problema → quebra de objeção → diferencial → três entregas →
-programação (6 módulos em 2 dias) → professores → experiência (galeria) → oferta/preço → para quem é →
-FAQ → CTA final com formulário.
+programação (6 módulos em 2 dias) → professores → mentoria (bloco 8B) → experiência (galeria) →
+oferta/preço → para quem é → FAQ → CTA final com formulário.
 
 ## Formulário
 
@@ -82,7 +82,11 @@ Originais em `src/assets/fotos/` (rastreados no git, **não** vão para o `dist/
 
 - `hero.jpg` — plateia e palco com backdrop Unyflex
 - `prof-rafael.jpg`, `prof-jose-augusto.jpg`, `prof-juliana.jpg`
-- `eventos/*.jpg` — 26 fotos de eventos anteriores (galeria do bloco 9 e faixa de fotos após o bloco 2).
+- `mentores/*.png` — mentores do bloco 8B, só em recorte quadrado (`MENTORES_SQUARE` no script),
+  saída em `public/img/gen/mentores/` (240/480). A Juliana não tem arquivo próprio: o recorte
+  `mentor-juliana` sai de `prof-juliana.jpg` (`MENTORES_EXTRA`).
+- `eventos/*.jpg` — fotos de eventos anteriores (galeria do bloco 9, faixa de fotos após o bloco 2 e,
+  só em lg+, a foto à direita de problema, objeção, diferencial e para quem é, via `TextoComFoto`).
   Categorias, alt e ordem ficam em `src/lib/eventos.ts`. Legenda fixa "Eventos Unyflex em Curitiba":
   nunca afirmar que a foto é deste programa. Saída em `public/img/gen/eventos/` (400/800/1600) e
   dimensões em `src/generated/eventos.json` (gerado, ignorado no git) para o width/height dos `<img>`.

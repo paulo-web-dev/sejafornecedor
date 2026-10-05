@@ -2,6 +2,7 @@
 // Roda automaticamente antes de `dev` e `build`; pula arquivos já atualizados.
 // As fotos de src/assets/fotos/eventos/ (galeria e faixa de fotos) vão para public/img/gen/eventos/,
 // e as dimensões delas ficam em src/generated/eventos.json para o width/height dos <img>.
+// As de src/assets/fotos/mentores/ (bloco 8B) saem só em recorte quadrado em public/img/gen/mentores/.
 import { readdir, stat, mkdir, unlink, writeFile } from 'node:fs/promises'
 import { join, parse } from 'node:path'
 import sharp from 'sharp'
@@ -37,6 +38,22 @@ const SQUARE = {
 }
 const SQUARE_WIDTHS = [320, 640, 800]
 const SQUARE_JPG = 640
+
+// Mentores: card de ~230 px no desktop (4 colunas) e ~150 px no celular (2 colunas), então 480
+// cobre DPR 2–3. O original do Giovani tem 400 px e é ampliado para 480 (diferença imperceptível).
+// A Juliana reaproveita o original dos professores (prof-juliana.jpg), com recorte mais fechado
+// para o rosto ficar do mesmo tamanho que o dos outros mentores.
+const MENTORES_SRC = join(SRC, 'mentores')
+const MENTORES_OUT = join(OUT, 'mentores')
+const MENTORES_EXTRA = { 'mentor-juliana': join(SRC, 'prof-juliana.jpg') }
+const MENTORES_SQUARE = {
+  'mentor-vicente': { focus: [0.5, 0.2], zoom: 0.95 },
+  'mentor-juliana': { focus: [0.47, 0.24], zoom: 0.5 },
+  'mentor-fernanda': { focus: [0.53, 0.27], zoom: 0.7 },
+  'mentor-giovani': { focus: [0.46, 0.36], zoom: 1 },
+}
+const MENTORES_WIDTHS = [240, 480]
+const MENTORES_JPG = 480
 // Posição vertical do rosto dentro do quadrado (0 = topo).
 const FACE_Y = 0.36
 
@@ -90,6 +107,22 @@ async function variants(src, outDir, name, cfg) {
   }
 }
 
+async function squareSet(src, outDir, name, crop, widths, jpgWidth) {
+  const img = sharp(src).rotate()
+  const meta = await sharp(src).rotate().metadata()
+  for (const w of widths) {
+    const out = join(outDir, `${name}-sq-${w}.webp`)
+    if (await isFresh(src, out)) continue
+    await (await squareCrop(img, meta, crop)).resize({ width: w }).webp(WEBP).toFile(out)
+    console.log('webp', out)
+  }
+  const outJpg = join(outDir, `${name}-sq-${jpgWidth}.jpg`)
+  if (!(await isFresh(src, outJpg))) {
+    await (await squareCrop(img, meta, crop)).resize({ width: jpgWidth }).jpeg(JPEG).toFile(outJpg)
+    console.log('jpg ', outJpg)
+  }
+}
+
 await mkdir(OUT, { recursive: true })
 const files = (await readdir(SRC)).filter(isPhoto)
 await prune(OUT, files)
@@ -98,23 +131,7 @@ for (const file of files) {
   const { name } = parse(file)
   const src = join(SRC, file)
   const cfg = VARIANTS[name] ?? DEFAULT
-  const img = sharp(src).rotate()
-
-  if (SQUARE[name]) {
-    const meta = await sharp(src).rotate().metadata()
-    for (const w of SQUARE_WIDTHS) {
-      const out = join(OUT, `${name}-sq-${w}.webp`)
-      if (await isFresh(src, out)) continue
-      ;(await squareCrop(img, meta, SQUARE[name])).resize({ width: w }).webp(WEBP).toFile(out)
-      console.log('webp', out)
-    }
-    const outJpg = join(OUT, `${name}-sq-${SQUARE_JPG}.jpg`)
-    if (!(await isFresh(src, outJpg))) {
-      ;(await squareCrop(img, meta, SQUARE[name])).resize({ width: SQUARE_JPG }).jpeg(JPEG).toFile(outJpg)
-      console.log('jpg ', outJpg)
-    }
-  }
-
+  if (SQUARE[name]) await squareSet(src, OUT, name, SQUARE[name], SQUARE_WIDTHS, SQUARE_JPG)
   await variants(src, OUT, name, cfg)
 }
 
@@ -133,3 +150,21 @@ for (const file of eventos) {
 }
 await mkdir(parse(EVENTOS_MANIFEST).dir, { recursive: true })
 await writeFile(EVENTOS_MANIFEST, JSON.stringify(manifest, null, 2) + '\n')
+
+// Mentores
+await mkdir(MENTORES_OUT, { recursive: true })
+const mentores = Object.fromEntries(
+  (await readdir(MENTORES_SRC).catch(() => []))
+    .filter(isPhoto)
+    .map((f) => [parse(f).name, join(MENTORES_SRC, f)]),
+)
+Object.assign(mentores, MENTORES_EXTRA)
+await prune(MENTORES_OUT, Object.keys(mentores))
+for (const [name, src] of Object.entries(mentores)) {
+  const crop = MENTORES_SQUARE[name]
+  if (!crop) {
+    console.warn(`aviso: ${src} sem recorte em MENTORES_SQUARE, ignorado`)
+    continue
+  }
+  await squareSet(src, MENTORES_OUT, name, crop, MENTORES_WIDTHS, MENTORES_JPG)
+}

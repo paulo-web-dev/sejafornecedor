@@ -159,6 +159,57 @@ Graduada em Direito pela Pontifícia Universidade Católica do Paraná, com expe
 
 ---
 
+## BLOCO 8B — MENTORIA
+
+**Chapéu**
+INCLUSO NA SUA INSCRIÇÃO
+
+**Título**
+## 1 hora de mentoria individual com quem ensina os municípios a montar a licitação.
+
+**Corpo**
+A Unyflex forma os agentes de contratação, pregoeiros e procuradores que conduzem as compras públicas pelo Brasil. Quem ensina a montar o edital sabe exatamente o que ele vai cobrar de quem quer vender.
+
+Depois da imersão, você escolhe um dos nossos mentores e marca uma hora só sua. Nessa hora o assunto não é a lei. É a sua empresa.
+
+**O que vocês olham juntos:**
+- O que sua empresa vende e quais órgãos compram isso
+- Em quais portais e modalidades procurar primeiro
+- O que falta na sua documentação para ser habilitado
+- Por qual oportunidade faz sentido começar
+
+**Subtítulo dos cards**
+Escolha com quem você quer conversar
+
+**Vicente Natalino Silva**
+*Licitações, contratos e compliance*
+Advogado especialista em licitações e contratos administrativos, com mais de 20 anos de experiência em órgãos públicos e empresas privadas. Docente da Unyflex e da pós-graduação da Faculdade Unypública, é autor de treinamentos completos sobre a Lei nº 14.133/2021.
+
+**Fernanda Sibeli Sotelo Teixeira Cersósimo**
+*Regulamentos e processos de contratação*
+Advogada, mestranda em Administração Pública pela UFGD e especialista em licitações e contratos administrativos. Autora de regulamentos aplicados à Nova Lei de Licitações e credenciada no Sebrae/MS para instrutoria e consultoria na área de compras.
+
+**Juliana Fiorese**
+*Habilitação e documentação*
+Graduada em Direito pela PUC-PR, com experiência em Direito Administrativo e especialização em licitações e contratos administrativos. Professora da Unyflex.
+
+**Giovani Capri**
+*Estruturação comercial da empresa*
+Mais de 10 mil alunos em 300 turmas presenciais e 14 mil horas em sala desenvolvendo equipes de empresas como Continental, Tetra Pak, Huhtamaki e Castrolanda. Traz para a mentoria o lado de dentro da empresa: como organizar o comercial para dar conta de um novo canal de vendas.
+
+**Detalhe (abaixo dos cards)**
+Mentoria individual, 1 hora, agendada por você em até 30 dias depois do curso.
+
+**Frase de fechamento (destacada)**
+Você não sai com uma apostila. Sai com um plano para a sua empresa.
+
+**CTA**
+QUERO MINHA VAGA
+
+> **Layout:** os quatro itens do "O que vocês olham juntos" em cards pequenos com ícone (grid 2x2). Mentores em cards de altura igual: foto quadrada no topo, nome, especialidade em dourado e bio. 2 colunas no mobile, 4 no desktop. Na seção de professores (bloco 8) a Juliana continua com a bio de docente; aqui ela aparece pela credencial de mentora.
+
+---
+
 ## BLOCO 9 — A EXPERIÊNCIA
 
 **Título**

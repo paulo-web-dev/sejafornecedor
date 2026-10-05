@@ -9,6 +9,7 @@ import Differential from './sections/Differential'
 import Deliverables from './sections/Deliverables'
 import Schedule from './sections/Schedule'
 import Professors from './sections/Professors'
+import Mentoring from './sections/Mentoring'
 import Experience from './sections/Experience'
 import Offer from './sections/Offer'
 import Audience from './sections/Audience'
@@ -31,6 +32,7 @@ export default function App() {
         <Deliverables />
         <Schedule />
         <Professors />
+        <Mentoring />
         <Experience />
         <Offer />
         <Audience />

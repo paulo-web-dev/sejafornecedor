@@ -57,12 +57,14 @@
 
   --color-navy: #0a1828;
   --color-navy-deep: #060f1c;
+  /* Entre os dois: só a mentoria, que fica entre professores (deep) e experiência (navy). */
+  --color-navy-mid: #08131f;
   --color-cyan: #22b8f0;
   --color-blue: #0099ff;
   --color-gold: #f5b700;
 
   /* Faixa de fotos em rolagem contínua (a trilha tem duas cópias, então -50% fecha o ciclo). */
-  --animate-marquee: marquee 70s linear infinite;
+  --animate-marquee: marquee 140s linear infinite;
   @keyframes marquee {
     to {
       transform: translateX(-50%);
