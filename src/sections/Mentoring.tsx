@@ -35,9 +35,9 @@ const MENTORS: Mentor[] = [
   },
   {
     slug: 'mentor-giovani',
-    name: 'Giovani Capri',
-    specialty: 'Estruturação comercial da empresa',
-    bio: 'Mais de 10 mil alunos em 300 turmas presenciais e 14 mil horas em sala desenvolvendo equipes de empresas como Continental, Tetra Pak, Huhtamaki e Castrolanda. Traz para a mentoria o lado de dentro da empresa: como organizar o comercial para dar conta de um novo canal de vendas.',
+    name: 'Giovani Piovan',
+    specialty: 'Pregão eletrônico e Compras.gov.br',
+    bio: 'Agente de Contratação e Pregoeiro da Prefeitura Municipal de Formosa do Oeste (PR). Graduado e especialista em Gestão Pública pela Faculdade Unypública, com MBA em Licitações e Contratos à luz da Lei nº 14.133/2021 pela Pólis Civitas. Prática diária de pregão eletrônico pela plataforma Compras.gov.br.',
   },
 ]
 

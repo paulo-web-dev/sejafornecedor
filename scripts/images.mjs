@@ -40,7 +40,8 @@ const SQUARE_WIDTHS = [320, 640, 800]
 const SQUARE_JPG = 640
 
 // Mentores: card de ~230 px no desktop (4 colunas) e ~150 px no celular (2 colunas), então 480
-// cobre DPR 2–3. O original do Giovani tem 400 px e é ampliado para 480 (diferença imperceptível).
+// cobre DPR 2–3. O original do Giovani tem 492×472 e o recorte (~400 px) é ampliado para 480
+// (diferença imperceptível).
 // A Juliana reaproveita o original dos professores (prof-juliana.jpg), com recorte mais fechado
 // para o rosto ficar do mesmo tamanho que o dos outros mentores.
 const MENTORES_SRC = join(SRC, 'mentores')
@@ -50,7 +51,7 @@ const MENTORES_SQUARE = {
   'mentor-vicente': { focus: [0.5, 0.2], zoom: 0.95 },
   'mentor-juliana': { focus: [0.47, 0.24], zoom: 0.5 },
   'mentor-fernanda': { focus: [0.53, 0.27], zoom: 0.7 },
-  'mentor-giovani': { focus: [0.46, 0.36], zoom: 1 },
+  'mentor-giovani': { focus: [0.5, 0.35], zoom: 0.82 },
 }
 const MENTORES_WIDTHS = [240, 480]
 const MENTORES_JPG = 480

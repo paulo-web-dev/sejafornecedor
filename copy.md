@@ -193,9 +193,9 @@ Advogada, mestranda em Administração Pública pela UFGD e especialista em lici
 *Habilitação e documentação*
 Graduada em Direito pela PUC-PR, com experiência em Direito Administrativo e especialização em licitações e contratos administrativos. Professora da Unyflex.
 
-**Giovani Capri**
-*Estruturação comercial da empresa*
-Mais de 10 mil alunos em 300 turmas presenciais e 14 mil horas em sala desenvolvendo equipes de empresas como Continental, Tetra Pak, Huhtamaki e Castrolanda. Traz para a mentoria o lado de dentro da empresa: como organizar o comercial para dar conta de um novo canal de vendas.
+**Giovani Piovan**
+*Pregão eletrônico e Compras.gov.br*
+Agente de Contratação e Pregoeiro da Prefeitura Municipal de Formosa do Oeste (PR). Graduado e especialista em Gestão Pública pela Faculdade Unypública, com MBA em Licitações e Contratos à luz da Lei nº 14.133/2021 pela Pólis Civitas. Prática diária de pregão eletrônico pela plataforma Compras.gov.br.
 
 **Detalhe (abaixo dos cards)**
 Mentoria individual, 1 hora, agendada por você em até 30 dias depois do curso.
